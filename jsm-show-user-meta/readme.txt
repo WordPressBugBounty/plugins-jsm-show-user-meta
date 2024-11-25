@@ -10,8 +10,8 @@ Tags: users, custom fields, metadata, profile, inspector
 Contributors: jsmoriss
 Requires PHP: 7.4.33
 Requires At Least: 5.9
-Tested Up To: 6.6.2
-Stable Tag: 4.6.0
+Tested Up To: 6.7.1
+Stable Tag: 4.6.1
 
 Show user metadata in a metabox when editing users - a great tool for debugging issues with user metadata.
 
@@ -82,7 +82,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.6.0 (2024/08/29)**
+**Version 4.6.1 (2024/11/25)**
 
 * **New Features**
 	* None.
@@ -98,7 +98,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 4.6.0 =
+= 4.6.1 =
 
-(2024/08/29) Updated the `SucomUtil` and `SucomUtilWP` classes.
+(2024/11/25) Updated the `SucomUtil` and `SucomUtilWP` classes.
 
