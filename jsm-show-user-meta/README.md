@@ -3,7 +3,7 @@
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>JSM Show User Metadata</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>Show user metadata in a metabox when editing users - a great tool for debugging issues with user metadata.</td></tr>
-<tr><th align="right" valign="top" nowrap>Stable Version</th><td>4.7.0</td></tr>
+<tr><th align="right" valign="top" nowrap>Stable Version</th><td>4.8.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.4.33 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.9 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WordPress</th><td>6.8.1</td></tr>
@@ -14,7 +14,7 @@
 
 <h2>Description</h2>
 
-<p>The JSM Show User Metadata plugin displays user profile meta keys and their unserialized values in a metabox at the bottom of the user profile editing page.</p>
+<p>The JSM Show User Metadata plugin displays user profile meta keys and unserialized values in a metabox at the bottom of the user profile editing page.</p>
 
 <p>There are no plugin settings - simply install and activate the plugin.</p>
 
