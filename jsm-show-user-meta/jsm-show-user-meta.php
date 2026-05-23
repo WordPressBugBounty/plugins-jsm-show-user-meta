@@ -12,8 +12,8 @@
  * Description: Show user metadata in a metabox when editing users - a great tool for debugging issues with user metadata.
  * Requires PHP: 7.4.33
  * Requires At Least: 6.0
- * Tested Up To: 6.9
- * Version: 4.8.0
+ * Tested Up To: 7.0
+ * Version: 4.9.0
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -22,7 +22,7 @@
  *      {bugfix}        Backwards-compatible bug fixes or small improvements.
  *      {stage}.{level} Pre-production release: dev < a (alpha) < b (beta) < rc (release candidate).
  *
- * Copyright 2016-2025 Jean-Sebastien Morisset (https://surniaulula.com/)
+ * Copyright 2016-2026 Jean-Sebastien Morisset (https://surniaulula.com/)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
