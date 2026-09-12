@@ -397,11 +397,11 @@ if ( ! class_exists( 'SucomUtil' ) ) {
 		/*
 		 * Add an array of values that have a common numbered prefix key.
 		 */
-		public static function add_multi_values( array &$opts, $opt_prefix, $add_key = null ) {
+		public static function add_multi_values( array &$opts, $opt_pre, $new_key = null ) {
 
-			if ( null === $add_key ) $add_key = $opt_prefix;
+			if ( null === $new_key ) $new_key = $opt_pre;
 
-			$opts[ $add_key ] = self::get_multi_values( $opts, $opt_prefix );
+			$opts[ $new_key ] = self::get_multi_values( $opts, $opt_pre );
 		}
 
 		public static function array_count_diff( array $arr, $max = 0 ) {
@@ -716,9 +716,9 @@ if ( ! class_exists( 'SucomUtil' ) ) {
 		/*
 		 * Return a indexed array of values that have a common prefix key.
 		 */
-		public static function get_multi_values( array &$opts, $opt_prefix ) {
+		public static function get_multi_values( array &$opts, $opt_pre ) {
 
-			$values = self::preg_grep_keys( '/^' . $opt_prefix . '_([0-9]+)$/', $opts, $invert = false, $replace = '$1' );
+			$values = self::preg_grep_keys( '/^' . $opt_pre . '_([0-9]+)$/', $opts, $invert = false, $replace = '$1' );
 
 			foreach ( $values as $num => $val ) {
 
@@ -1774,7 +1774,8 @@ if ( ! class_exists( 'SucomUtil' ) ) {
 				return $file_name;
 			}
 
-			$special_chars = array( '?', '[', ']', '/', '\\', '=', '<', '>', ':', ';', ',', '\'', '"', '&', '$', '#', '*', '(', ')', '|', '~', '`', '!', '{', '}', '%', '+', chr( 0 ) );
+			$special_chars = array( '?', '[', ']', '/', '\\', '=', '<', '>', ':', ';', ',', '\'', '"',
+				'&', '$', '#', '*', '(', ')', '|', '~', '`', '!', '{', '}', '%', '+', chr( 0 ) );
 
 			$file_name = preg_replace( '#\x{00a0}#siu', ' ', $file_name );
 			$file_name = str_replace( $special_chars, '', $file_name );
@@ -1876,14 +1877,13 @@ if ( ! class_exists( 'SucomUtil' ) ) {
 
 			if ( is_scalar( $key ) ) {	// Int, float, string or bool.
 
-				$key = strtolower( $key );	// Convert upper case characters to lower case.
-
+				$key = strtolower( $key );			// Convert upper case characters to lower case.
 				$key = preg_replace( '/[_\-]/', '.', $key );	// Convert underscores and hyphens to periods.
+				$key = preg_replace( '/[^a-z\.]/', '', $key );	// Keep only alphabetic and period characters.
 
-				return preg_replace( '/[^a-z\.]/', '', $key );	// Keep only alphabetic and period characters.
-			}
+			} else $key = '';
 
-			return '';
+			return $key;
 		}
 
 		public static function sanitize_locale( $locale ) {
@@ -1894,10 +1894,14 @@ if ( ! class_exists( 'SucomUtil' ) ) {
 			return $locale;
 		}
 
+		/*
+		 * Decode and remove html/js/css and quotes.
+		 */
 		public static function sanitize_meta_key( $meta_key ) {
 
 			$meta_key = self::decode_html( $meta_key );
 			$meta_key = self::strip_html( $meta_key );
+			$meta_key = preg_replace( '/[\'\"]/', '', $meta_key );
 
 			return $meta_key;
 		}
@@ -2281,20 +2285,6 @@ if ( ! class_exists( 'SucomUtil' ) ) {
 		 *	'is_home_url:https_example_com'				// When a canonical URL is provided.
 		 * 	'post:123_type:page_url:https_example_com_page-slug'	// When a canonical URL is provided.
 		 * 	'url:https_example_com_2022_01'				// When a canonical URL is provided.
-		 *
-		 * See SucomUtil::get_mod_css_id().
-		 * See SucomUtilWP::get_locale().
-		 * See WpssoAbstractWpMeta->check_sortable_meta().
-		 * See WpssoHead->clear_head_array().
-		 * See WpssoHead->get_head_array().
-		 * See WpssoOpenGraph->get_mod_og_type().
-		 * See WpssoPage->clear_the_content().
-		 * See WpssoPage->get_the_content().
-		 * See WpssoPinterest->get_mod_image_html().
-		 * See WpssoSchema->get_mod_schema_type().
-		 * See WpssoUtil->get_canonical_url().
-		 * See WpssoUtil->clear_uniq_urls().
-		 * See WpssoUtil->is_uniq_url().
 		 */
 		public static function get_mod_salt( $mod = false, $canonical_url = false, $sep = '_' ) {
 
