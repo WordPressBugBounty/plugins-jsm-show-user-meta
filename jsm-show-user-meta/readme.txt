@@ -10,8 +10,8 @@ Tags: users, custom fields, metadata, profile, inspector
 Contributors: jsmoriss
 Requires PHP: 7.4.33
 Requires At Least: 6.0
-Tested Up To: 7.1.3
-Stable Tag: 4.9.1
+Tested Up To: 7.2
+Stable Tag: 4.9.2
 
 Show user metadata in a metabox when editing users - a great tool for debugging issues with user metadata.
 
@@ -82,6 +82,20 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 4.9.2 (2026/11/25)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* Fixed `SucomUtil::get_multi_values()` to include non-suffixed (ie. non-multi) option keys.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.4.33.
+	* WordPress v6.0.
+
 **Version 4.9.1 (2026/09/12)**
 
 * **New Features**
@@ -111,6 +125,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WordPress v6.0.
 
 == Upgrade Notice ==
+
+= 4.9.2 =
+
+(2026/11/25) Fixed `SucomUtil::get_multi_values()` to include non-suffixed (ie. non-multi) option keys.
 
 = 4.9.1 =
 
